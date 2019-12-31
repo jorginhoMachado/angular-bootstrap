@@ -1,9 +1,20 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+export enum AuthMethod {
+  NONE
+}
 
 export const environment = {
-  production: false
+  production: false,
+  inMemoryWebApi: true,
+  api: 'api',
+  auth_method: AuthMethod.NONE,
+  client_name: '',
+  system_name: '',
+  system_version: 'develop',
+  environment: 'local',
+  environment_name: 'Local',
 };
 
 /*

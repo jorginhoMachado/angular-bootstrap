@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "start": "node node_modules/@angular/cli/bin/ng serve",
+    "build": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng build",
+    "test": "node node_modules/@angular/cli/bin/ng test --code-coverage=true --source-map=false",
+    "test:ci": "node node_modules/@angular/cli/bin/ng test --browsers=ChromeHeadless --code-coverage=true --source-map=false --watch=false",
+    "lint": "node node_modules/@angular/cli/bin/ng lint",
+    "e2e": "node node_modules/@angular/cli/bin/ng e2e",
+    "tslint": "tslint --project ./tsconfig.json 'src/**/*.{ts,tsx}'"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +21,15 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "@fortawesome/angular-fontawesome": "^0.5.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "angular-in-memory-web-api": "^0.9.0",
+    "bootstrap": "4.1.1",
+    "imask": "^6.0.0",
+    "ngx-bootstrap": "^5.2.0",
+    "ngx-perfect-scrollbar": "^8.0.0",
+    "ngx-toastr": "^11.2.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
