@@ -1,0 +1,40 @@
+<div class="wrapper">
+  <div id="formContent">
+    <div class="alert alert-info">
+      Username: ana<br />
+      Password: ana
+    </div>
+    <div class="text-center logo">
+      <img class="img-fluid" src="#" alt="logo"/>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username"></label>
+        <input id="username" type="text" formControlName="username" class="form-control" placeholder="Usuário"
+               [ngClass]="{ 'is-invalid': submitted && loginForm.controls.username.errors }" />
+        <div *ngIf="submitted && loginForm.controls.username.errors" class="invalid-feedback">
+          <div *ngIf="loginForm.controls.username.errors.required">Username is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password"></label>
+        <input id="password" type="password" formControlName="password" class="form-control" placeholder="Senha"
+               [ngClass]="{ 'is-invalid': submitted && loginForm.controls.password.errors }" />
+        <div *ngIf="submitted && loginForm.controls.password.errors" class="invalid-feedback">
+          <div *ngIf="loginForm.controls.password.errors.required">Password is required</div>
+        </div>
+      </div>
+      <button [disabled]="loading" class="btn btn-primary">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Login
+      </button>
+      <div id="formFooter">
+        <p>Esqueceu a sua senha ? </p>
+        <p>Clique
+          <a class="underlineHover" href="#">aqui</a>
+          para recuperar a sua senha
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
